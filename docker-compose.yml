@@ -1,0 +1,10 @@
+services:
+  api:
+    container_name: nacon
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "$API_PORT:$API_PORT"
+    env_file: .env
+    restart: "always"

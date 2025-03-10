@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option go_package = ".skilltestnacon";
+
+package liveevents;
+
+service LiveEventsService {
+  rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse) {}
+  rpc UpdateEvent(UpdateEventRequest) returns (UpdateEventResponse) {}
+  rpc DeleteEvent(DeleteEventRequest) returns (DeleteEventResponse) {}
+  rpc ListEvents(ListEventsRequest) returns (ListEventsResponse) {}
+}
+
+message CreateEventRequest {
+  string title       = 1;
+  string description = 2;
+  int64  start_time  = 3;
+  string rewards     = 4;
+}
+
+message CreateEventResponse {
+  int64  id = 1;
+}
+
+message UpdateEventRequest {
+  int64  id          = 1;
+  string title       = 2;
+  string description = 3;
+  int64  end_time    = 4;
+  string rewards     7= 5;
+}
+
+message UpdateEventResponse {
+}
+
+message DeleteEventRequest {
+   int64  id = 1;
+}
+
+message DeleteEventResponse {
+}
+
+
+message ListEventsRequest {
+}
+
+message LiveEvent {
+  int64  id          = 1;
+  string title       = 2;
+  string description = 3;
+  int64  start_time  = 4;
+  int64  end_time    = 5;
+  string rewards     = 6;
+}
+
+message ListEventsResponse {
+  repeated LiveEvent live_events = 1;
+}
